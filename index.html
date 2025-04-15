@@ -4,23 +4,31 @@
     <head>
         <meta charset="UTF-8">
         <title>Badger News</title>
+        <link rel="stylesheet" href="styles.css" />
     </head>
 
+    <!-- Nav Bar -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="sports.html">Sports</a></li>
+        <li><a href="local.html">Local</a></li>
+        <li><a href="aboutUs.html">About Us</a></li>
+        <li><a href="contactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+
     <body>
-        <h1>Home Page</h1>
+        <h1>Badger News</h1>
         <p>This is the home page of badger news</p>
     </body>
 
-    <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="technology.html">Technology</a></li>
-          <li><a href="sports.html">Sports</a></li>
-          <li><a href="local.html">Local</a></li>
-          <li><a href="aboutUs.html">About Us</a></li>
-          <li><a href="contactUs.html">Contact Us</a></li>
-        </ul>
-      </nav>
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search local news..." />
+    <button onclick="searchArticles()">Search</button>
+  </div>
 
 
 </html>
