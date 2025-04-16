@@ -24,6 +24,17 @@ nav a {
     font-size: 21px; 
 }
 
+nav a {
+    color: #15171a; /* dark gray */ 
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    color: #8e003e; /* red */
+    transform: translateY(-2px);
+}
+
 
 /* H1 styles */
 h1{
@@ -33,3 +44,60 @@ h1{
     margin-bottom: 20px;
   }
   
+
+  /* Contact Us CSS */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb; /* light pink*/ 
+}
+
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1f2937;
+    background: linear-gradient(to right, #e11d48, #be123c);/* red */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 28rem;
+    margin: 0 auto;
+}
+
+.form-container input,
+.form-container textarea {
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    padding: 0.75rem;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+    outline: none;
+    border-color: #e11d48;
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+}
+
+.form-container button {
+    background-color: #e11d48;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-container button:hover {
+    background-color: #be123c;
+    transform: translateY(-2px);
+}
