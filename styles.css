@@ -13,7 +13,7 @@ body {
 
 /* Navigation Styles */
 nav {
-    background-color: lightpink;
+    background-color: rgb(250, 160, 160);
     padding: 10px 0;
 }
 
@@ -56,7 +56,7 @@ h1 {
     margin-bottom: 20px;
     font-weight: 800;
     color: #1f2937;
-    background: linear-gradient(to right, #e11d48, #be123c);
+    background: linear-gradient(to right, #e11d1d, #cb1717);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -92,7 +92,7 @@ p {
 
 .cta-button {
     display: inline-block;
-    background-color: #e11d48;
+    background-color: #e11d1d;
     color: white;
     font-weight: 600;
     padding: 0.75rem 1.5rem;
@@ -102,7 +102,7 @@ p {
 }
 
 .cta-button:hover {
-    background-color: #be123c;
+    background-color: #e11d1d;
     transform: translateY(-2px);
 }
 
@@ -159,13 +159,13 @@ p {
 }
 
 .section-contact a {
-    color: #e11d48;
+    color: #e11d1d;
     text-decoration: none;
     font-weight: 600;
 }
 
 .section-contact a:hover {
-    color: #be123c;
+    color: #e11d1d;
     text-decoration: underline;
 }
 
@@ -257,7 +257,7 @@ footer p {
 }
 
 .search-container .search-btn:hover {
-    background-color: #be123c;/* red*/
+    background-color: #e11d1d;/* red*/
 
     transform: translateY(-2px);
 }
