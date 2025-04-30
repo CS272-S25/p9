@@ -144,3 +144,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// Search functionality for politics page
+document.addEventListener('DOMContentLoaded', function() {
+    const pageHeader = document.querySelector('header h1');
+    if (pageHeader && pageHeader.textContent.trim() === 'Political News') {
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.querySelector('.search-container button');
+        const articleItems = document.querySelectorAll('.article-item');
+
+        if (searchInput && searchButton && articleItems.length > 0) {
+            searchButton.addEventListener('click', function() {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                articleItems.forEach(article => {
+                    const titleElement = article.querySelector('.card-title');
+                    if (titleElement) {
+                        const title = titleElement.textContent.toLowerCase();
+                        if (title.includes(searchTerm) || searchTerm === '') {
+                            article.style.display = 'block';
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        }
+    }
+});
