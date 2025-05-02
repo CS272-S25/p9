@@ -1,12 +1,11 @@
 // Basic bot detection mechanism
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const isBot = !('onscroll' in window) || !('ontouchstart' in window) || !navigator.userAgent.includes('Mozilla');
-    
     if (isBot) {
         console.warn('Potential bot detected. Access may be restricted.');
     } else {
         let hasInteracted = false;
-        document.addEventListener('mousemove', function() {
+        document.addEventListener('mousemove', function () {
             if (!hasInteracted) {
                 hasInteracted = true;
                 console.log('Human interaction detected.');
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Alerts users that the message is sent in contact us form
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const message = document.getElementById('form-message');
         if (message) {
@@ -29,8 +28,8 @@ if (contactForm) {
     });
 }
 
-// Search functionality for all pages based on header
-document.addEventListener('DOMContentLoaded', function() {
+// Search functionality
+document.addEventListener('DOMContentLoaded', function () {
     const pageHeader = document.querySelector('header h1');
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.querySelector('.search-container button');
@@ -45,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const articleItems = document.querySelectorAll(containerSelector);
     if (searchInput && searchButton && articleItems.length > 0) {
-        searchButton.addEventListener('click', function() {
+        searchButton.addEventListener('click', function () {
             const searchTerm = searchInput.value.toLowerCase();
             articleItems.forEach(article => {
                 const titleElement = article.querySelector('.card-title');
@@ -74,11 +73,15 @@ function saveArticle(button) {
     saved.push({ title, link });
     localStorage.setItem('savedArticles', JSON.stringify(saved));
     alert("Article saved!");
-    renderSavedArticles();  // refresh page 
+    renderSavedArticles(); // Refresh list without reloading
+}
 
+// Render saved articles
 function renderSavedArticles() {
     const savedContainer = document.getElementById('saved-articles-container');
-    savedContainer.innerHTML = ''; // Clear the container first
+    if (!savedContainer) return; // Prevent error on pages without the container
+    savedContainer.innerHTML = '';
+
     const saved = JSON.parse(localStorage.getItem('savedArticles') || '[]');
 
     if (saved.length === 0) {
@@ -94,7 +97,7 @@ function renderSavedArticles() {
                     </div>
                     <div class="card-footer d-flex justify-content-between">
                         <a href="${article.link}" class="btn btn-secondary" target="_blank">Read Again</a>
-                        <button class="btn btn-danger btn-sm" data-index="${index}" onclick="removeArticle(${index})">Remove</button>
+                        <button class="btn btn-danger btn-sm" onclick="removeArticle(${index})">Remove</button>
                     </div>
                 </div>
             `;
@@ -106,14 +109,15 @@ function renderSavedArticles() {
 // Remove article from saved list
 function removeArticle(index) {
     const saved = JSON.parse(localStorage.getItem('savedArticles') || '[]');
-    saved.splice(index, 1); // Remove the article at the given index
-    localStorage.setItem('savedArticles', JSON.stringify(saved)); // Update the saved articles in localStorage
+    saved.splice(index, 1);
+    localStorage.setItem('savedArticles', JSON.stringify(saved));
+    renderSavedArticles();
+}
 
-    renderSavedArticles(); 
-
+// Render on homepage load
 document.addEventListener('DOMContentLoaded', function () {
     const pageHeader = document.querySelector('header h1');
     if (pageHeader && pageHeader.textContent.trim() === 'Badger News') {
-        renderSavedArticles(); 
+        renderSavedArticles();
     }
 });
