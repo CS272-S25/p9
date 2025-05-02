@@ -5,16 +5,16 @@ Badger News is a student-driven news website designed to keep readers especially
 
 # Website Overview
 
-Latest Articles in various categories:
+Pages/latest articles in various categories:
 
-- Technology
-- Politics
-- Sports
-- Local Madison News
+- Technology News Page
+- Politics News Page
+- Sports News Page
+- Local Madison News Page
 
-About Us: Learn more about the team behind the site.
+About Us Page: Learn more about the team behind the site.
 
-Contact Us: A form where users can leave feedback or questions, including their email so we can respond. 
+Contact Us Page: A form where users can leave feedback or questions, including their email so we can respond. 
 
 --------------------------------------------------------------------------------------------------------------
 Features:
