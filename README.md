@@ -1,6 +1,6 @@
 
-**# Badger News
-**
+# Badger News
+
 Badger News is a student-driven news website designed to keep readers especially those in Madison, Wisconsin and the UW-Madison community—up to date with the latest developments in technology, politics, sports, and local news.
 
 # Website Overview
