@@ -13,6 +13,7 @@ Latest Articles in various categories:
 - Local Madison News
 
 About Us: Learn more about the team behind the site.
+
 Contact Us: A form where users can leave feedback or questions, including their email so we can respond. 
 
 --------------------------------------------------------------------------------------------------------------
