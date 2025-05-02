@@ -73,13 +73,13 @@ function saveArticle(button) {
     saved.push({ title, link });
     localStorage.setItem('savedArticles', JSON.stringify(saved));
     alert("Article saved!");
-    renderSavedArticles(); // Refresh list without reloading
+    renderSavedArticles(); 
 }
 
-// Render saved articles
+// saved articles
 function renderSavedArticles() {
     const savedContainer = document.getElementById('saved-articles-container');
-    if (!savedContainer) return; // Prevent error on pages without the container
+    if (!savedContainer) return; 
     savedContainer.innerHTML = '';
 
     const saved = JSON.parse(localStorage.getItem('savedArticles') || '[]');
@@ -114,14 +114,7 @@ function removeArticle(index) {
     renderSavedArticles();
 }
 
-// Render on homepage load
-document.addEventListener('DOMContentLoaded', function () {
-    const pageHeader = document.querySelector('header h1');
-    if (pageHeader && pageHeader.textContent.trim() === 'Badger News') {
-        renderSavedArticles();
-    }
-});
-
+// Fetch NYT recent news
 async function fetchRecentNews() {
     const apiKey = 'zkKIZHx34tAZpXmBhLccvy5OPtzdfALN'; 
     const query = 'U.S.'; 
@@ -171,10 +164,15 @@ async function fetchRecentNews() {
     }
 }
 
+// show saved articles on all pages 
 document.addEventListener('DOMContentLoaded', function () {
+    if (document.getElementById('saved-articles-container')) {
+        renderSavedArticles();
+    }
+
+    // fetch NYT articles 
     const pageHeader = document.querySelector('header h1');
     if (pageHeader && pageHeader.textContent.trim() === 'Badger News') {
-        renderSavedArticles(); 
         fetchRecentNews();    
     }
 });
