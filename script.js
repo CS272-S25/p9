@@ -114,25 +114,30 @@ function removeArticle(index) {
     renderSavedArticles();
 }
 
-// Ensure saved articles always render on pages that have the container
+// Render on homepage load
 document.addEventListener('DOMContentLoaded', function () {
-    if (document.getElementById('saved-articles-container')) {
+    const pageHeader = document.querySelector('header h1');
+    if (pageHeader && pageHeader.textContent.trim() === 'Badger News') {
         renderSavedArticles();
     }
 });
 
-// NYT fetching logic (not the focus)
 async function fetchRecentNews() {
     const apiKey = 'zkKIZHx34tAZpXmBhLccvy5OPtzdfALN'; 
     const query = 'U.S.'; 
     const apiUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=${apiKey}`;
     const nytNewsContainer = document.querySelector('#nyt-articles-container'); 
 
-    if (!nytNewsContainer) return;
+    if (!nytNewsContainer) {
+        console.error('NYT news container element with ID "nyt-articles-container" not found.');
+        return;
+    }
 
     try {
         const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         const articles = data.response.docs;
 
@@ -165,3 +170,11 @@ async function fetchRecentNews() {
         nytNewsContainer.innerHTML = '<p>Failed to load recent news from NYT.</p>';
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const pageHeader = document.querySelector('header h1');
+    if (pageHeader && pageHeader.textContent.trim() === 'Badger News') {
+        renderSavedArticles(); 
+        fetchRecentNews();    
+    }
+});
