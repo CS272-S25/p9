@@ -50,6 +50,7 @@
                         </div>
                         <div class="card-footer">
                             <a href="https://www.cnn.com/2025/04/08/tech/ai-resume-job-hunters/index.html" class="btn btn-primary">Read More</a>
+                            <button class="btn btn-outline-secondary save-button" onclick="saveArticle(this)">Save Article</button>
                         </div>
                     </div>
                 </div>
@@ -65,6 +66,7 @@
                         </div>
                         <div class="card-footer">
                             <a href="https://www.espn.com/golf/story/_/id/44654656/rory-mcilroy-2025-masters-augusta-national-grand-slam" class="btn btn-primary">Read More</a>
+                            <button class="btn btn-outline-secondary save-button" onclick="saveArticle(this)">Save Article</button>
                         </div>
                     </div>
                 </div>
@@ -80,15 +82,34 @@
                         </div>
                         <div class="card-footer">
                             <a href="https://www.dailycardinal.com/article/2025/04/one-of-the-largest-crowds-we-have-seen-thousands-descend-on-mifflin-street-for-56th-annual-block-party" class="btn btn-primary">Read More</a>
+                            <button class="btn btn-outline-secondary save-button" onclick="saveArticle(this)">Save Article</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Saved Articles Section -->
+<div class="container mt-5" id="saved-articles-section">
+    <h2>Saved Articles</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="saved-articles-container">
+        <!-- Saved articles will be loaded here with JavaScript -->
+    </div>
+</div>
+
+<!-- Saved Articles Section -->
+<div class="container mt-5" id="saved-articles-section">
+    <h2>Saved Articles</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="saved-articles-container">
+        <!-- Saved articles will be loaded here with JavaScript -->
+    </div>
+</div>
+
+
+
+
         <!-- About Us Section -->
         <div class="container mt-5">
-            <!-- Mission Statement -->
             <section id="mission" class="section-mission">
                 <h2>Our Mission</h2>
                 <p>At Badger News, we are dedicated to delivering timely, accurate, and engaging technology news that empowers our readers to stay informed and inspired in a rapidly evolving world.</p>
@@ -100,13 +121,11 @@
                 </div>
             </section>
 
-            <!-- Our Story -->
             <section id="our-story" class="section-story">
                 <h2>Our Story</h2>
                 <p>Founded in 2025, Badger News emerged from a passion for technology and a commitment to journalistic integrity. Our team of innovators and storytellers works tirelessly to bring you insights into the tech world, from groundbreaking startups to industry giants.</p>
             </section>
 
-            <!-- Meet the Team -->
             <section id="team" class="section-team">
                 <h2>Meet the Team</h2>
                 <div class="team-grid">
@@ -131,7 +150,6 @@
                 </div>
             </section>
 
-            <!-- Contact Link -->
             <section id="contact-link" class="section-contact">
                 <h2>Get in Touch</h2>
                 <p>We'd love to hear your feedback or story ideas! <a href="contactUs.html">Click here to reach out.</a></p>
