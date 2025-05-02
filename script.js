@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Save Article to Local Storage
+// Save article to local storage
 function saveArticle(button) {
     const card = button.closest('.card');
     const title = card.querySelector('.card-title').innerText;
@@ -74,10 +74,8 @@ function saveArticle(button) {
     saved.push({ title, link });
     localStorage.setItem('savedArticles', JSON.stringify(saved));
     alert("Article saved!");
-    renderSavedArticles();  // Re-render saved articles immediately after saving
-}
+    renderSavedArticles();  // refresh page 
 
-// Utility function to render saved articles
 function renderSavedArticles() {
     const savedContainer = document.getElementById('saved-articles-container');
     savedContainer.innerHTML = ''; // Clear the container first
@@ -111,13 +109,11 @@ function removeArticle(index) {
     saved.splice(index, 1); // Remove the article at the given index
     localStorage.setItem('savedArticles', JSON.stringify(saved)); // Update the saved articles in localStorage
 
-    renderSavedArticles(); // Re-render the saved articles to reflect the removal
-}
+    renderSavedArticles(); 
 
-// Initial rendering of saved articles on page load
 document.addEventListener('DOMContentLoaded', function () {
     const pageHeader = document.querySelector('header h1');
     if (pageHeader && pageHeader.textContent.trim() === 'Badger News') {
-        renderSavedArticles(); // Display saved articles when the page loads
+        renderSavedArticles(); 
     }
 });
