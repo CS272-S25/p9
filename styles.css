@@ -346,3 +346,15 @@ footer p {
         width: 40px;
     }
 }
+
+
+/* Podcast Styling */ 
+.podcast-button-container {
+    margin-top: 10px;
+}
+
+.podcast-button-container button {
+    margin-top: 0.5rem;
+}
+
+
