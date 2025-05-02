@@ -27,6 +27,8 @@ Saved Articles: Users can now save articles to revisit later.
 
 Search Bar: Easily search for specific news sources or topics.
 
+Contact Us Form: Users can leave feedback, requests, questions or comments. 
+
 # Purpose
 
 Our goal is to provide timely, relevant, and trustworthy news tailored specifically for Madison residents and University of Wisconsin–Madison students in various topics. We aim to keep our audience informed on important topics—ranging from local events to broader issues like politics, technology, and sports
