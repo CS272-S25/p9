@@ -121,3 +121,60 @@ document.addEventListener('DOMContentLoaded', function () {
         renderSavedArticles();
     }
 });
+
+async function fetchRecentNews() {
+    const apiKey = 'zkKIZHx34tAZpXmBhLccvy5OPtzdfALN'; 
+    const query = 'U.S.'; 
+    const apiUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=${apiKey}`;
+    const nytNewsContainer = document.querySelector('#nyt-articles-container'); 
+
+    if (!nytNewsContainer) {
+        console.error('NYT news container element with ID "nyt-articles-container" not found.');
+        return;
+    }
+
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        const articles = data.response.docs;
+
+        nytNewsContainer.innerHTML = ''; 
+
+        if (articles && articles.length > 0) {
+            articles.forEach(article => {
+                const headline = article.headline.main;
+                const articleUrl = article.web_url;
+
+                const articleDiv = document.createElement('div');
+                articleDiv.className = 'col article-item'; 
+
+                articleDiv.innerHTML = `
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">${headline}</h5>
+                            <p class="card-text"><a href="${articleUrl}" target="_blank">Read More</a></p>
+                        </div>
+                    </div>
+                `;
+                nytNewsContainer.appendChild(articleDiv);
+            });
+        } else {
+            nytNewsContainer.innerHTML = '<p>No recent news articles found from NYT for Wisconsin.</p>';
+        }
+
+    } catch (error) {
+        console.error('Error fetching news from NYT API:', error);
+        nytNewsContainer.innerHTML = '<p>Failed to load recent news from NYT.</p>';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const pageHeader = document.querySelector('header h1');
+    if (pageHeader && pageHeader.textContent.trim() === 'Badger News') {
+        renderSavedArticles(); 
+        fetchRecentNews();    
+    }
+});
