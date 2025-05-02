@@ -66,13 +66,13 @@ function saveArticle(button) {
     let saved = JSON.parse(localStorage.getItem('savedArticles')) || [];
     const alreadySaved = saved.some(article => article.title === title);
     if (alreadySaved) {
-        alert("You already saved this article.");
+        alert("You already saved this article."); // feedback that user already saved 
         return;
     }
 
     saved.push({ title, link });
     localStorage.setItem('savedArticles', JSON.stringify(saved));
-    alert("Article saved!");
+    alert("Article saved!"); // feedback that article is saved 
     renderSavedArticles(); 
 }
 
@@ -85,7 +85,7 @@ function renderSavedArticles() {
     const saved = JSON.parse(localStorage.getItem('savedArticles') || '[]');
 
     if (saved.length === 0) {
-        savedContainer.innerHTML = '<p>No saved articles yet.</p>';
+        savedContainer.innerHTML = '<p>No saved articles yet.</p>'; // will show this if no articles have been saved 
     } else {
         saved.forEach((article, index) => {
             const card = document.createElement('div');
@@ -111,7 +111,7 @@ function removeArticle(index) {
     const saved = JSON.parse(localStorage.getItem('savedArticles') || '[]');
     saved.splice(index, 1);
     localStorage.setItem('savedArticles', JSON.stringify(saved));
-    renderSavedArticles();
+    renderSavedArticles(); // this will refresh the page so saved articles will show on all pages
 }
 
 // Fetch NYT recent news
