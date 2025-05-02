@@ -172,9 +172,7 @@ async function fetchRecentNews() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const pageHeader = document.querySelector('header h1');
-    if (pageHeader && pageHeader.textContent.trim() === 'Badger News') {
-        renderSavedArticles(); 
-        fetchRecentNews();    
+    if (document.getElementById('saved-articles-container')) {
+        renderSavedArticles();
     }
 });
